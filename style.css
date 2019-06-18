@@ -1,3 +1,53 @@
 body {
-  background-color: lightblue;
+  /* background-color: lightblue; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: sans-serif;
+}
+
+ul {
+  display: flex;
+  justify-content: center;
+  padding: 0;
+}
+
+ul > li {
+  padding: 0 10px;
+  display: block;
+  cursor: pointer;
+}
+
+li a:hover {
+  display: block;
+  /* padding: 0 15px; */
+  transform: scale(1.1);
+}
+
+ul > li:nth-child(2) {
+  border-left: 2px solid black;
+  border-right: 2px solid black;
+}
+
+#title {
+  margin: 0;
+}
+
+#description {
+  margin: 10px;
+}
+
+.tooltip {
+  opacity: 0;  
+  position: absolute;
+  pointer-events: none;                    
+  border-radius: 5px;
+  padding: 0;
+  margin: 0;
+  padding-left: 10px;
+  padding-right: 10px;
+  text-align: center;
+  font-family: monospace;
+  background-color:rgba(0, 0, 0, 0.8);
+  color: white;
 }
