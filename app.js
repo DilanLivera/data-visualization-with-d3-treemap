@@ -6,6 +6,11 @@ document.addEventListener("DOMContentLoaded", function() {
   const height = 650;
   const legendWidth = 175;
   const legendHeight = 650;
+  // const colors = ["rgb(173, 216, 230)", "rgb(240, 128, 128)", "rgb(84, 120, 240)", "rgb(224, 255, 255)", 
+  //                 "rgb(211, 211, 211)", "rgb(144, 238, 144)", "rgb(255, 182, 193)", "rgb(255, 160, 122)", 
+  //                 "rgb(32, 178, 170)", "rgb(135, 206, 250)", "rgb(119, 136, 153)", "rgb(138, 84, 240)",
+  //                 "rgb(175, 195, 221)", "rgb(255, 255, 224)", "rgb(34, 186, 236)", "rgb(255, 98, 71)", 
+  //                 "rgb(246, 248, 125)", "rgb(124, 241, 163)", "rgb(171, 172, 240)", "rgb(217, 122, 236)"]
   const dataSetDetails = [{
                           name: "Video Game Data",
                           title: "Video Game Sales",
@@ -122,12 +127,11 @@ document.addEventListener("DOMContentLoaded", function() {
     texts
       .enter()
       .append("text")
-      .append("tspan")
+      // .append("tspan")
       .merge(texts)                    
         .attr("x", d => d.x0+5)
         .attr("y", d => d.y0+15)
-        .style("display", "block")
-        .html(d => d.data.name)
+        .html(textFormater)
         .style("font-size", "9");
     
     //add legend
@@ -144,7 +148,7 @@ document.addEventListener("DOMContentLoaded", function() {
       .merge(legendBoxes)
         .classed("legend-item", true)
         .attr("x", 30)
-        .attr("y", (d, i) => { console.log(i);return (i+1) * 30;})
+        .attr("y", (d, i) => { return (i+1) * 30;})
         .attr("width", 20)
         .attr("height", 20)
         .style("fill", d => colorScale(d));
@@ -162,7 +166,7 @@ document.addEventListener("DOMContentLoaded", function() {
       .merge(legendTexts)
         .classed("legend-text", true)
         .attr("x", 75)
-        .attr("y", (d, i) => { console.log(i);return (i+1.45) * 30;})
+        .attr("y", (d, i) => { return (i+1.45) * 30;})
         .text(d => d)
         .style("font-size", "12");
 
@@ -187,6 +191,16 @@ document.addEventListener("DOMContentLoaded", function() {
     function hideTooltip() {        
       tooltip
         .style("opacity", 0);
-    }             
+    }
+    
+    function textFormater(d){
+      let words = d.data.name.split(" ");
+      let tspans = words.reduce((accumulator, word, i) => { 
+                      accumulator += ` ${word}`;
+                      if(i%2 ===1 || words.length === (i+1)) accumulator = accumulator + `</tspan><tspan x=${d.x0+3} dy=${i+8}>`;
+                      return accumulator;
+                    },"<tspan>");
+      return tspans;
+    }
   }    
 });
