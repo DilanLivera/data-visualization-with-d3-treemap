@@ -168,7 +168,7 @@ document.addEventListener("DOMContentLoaded", function() {
         .attr("x", 75)
         .attr("y", (d, i) => { return (i+1.45) * 30;})
         .text(d => d)
-        .style("font-size", "12");
+        .attr("font-size", "12");
 
     //tooltip functions
     function showTooltip(d) {
