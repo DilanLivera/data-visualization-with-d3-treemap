@@ -128,11 +128,11 @@ document.addEventListener("DOMContentLoaded", function() {
       .enter()
       .append("text")
       // .append("tspan")
-      .merge(texts)                    
+      .merge(texts)
+        .classed("tile-text", true)
         .attr("x", d => d.x0+5)
         .attr("y", d => d.y0+15)
-        .html(textFormater)
-        .style("font-size", "9");
+        .html(textFormater);
     
     //add legend
     let legendBoxes = legend
@@ -170,8 +170,6 @@ document.addEventListener("DOMContentLoaded", function() {
         .text(d => d)
         .style("font-size", "12");
 
-
-
     //tooltip functions
     function showTooltip(d) {
       d3.select(this).classed("highlight", true);
@@ -197,10 +195,10 @@ document.addEventListener("DOMContentLoaded", function() {
       let words = d.data.name.split(" ");
       let tspans = words.reduce((accumulator, word, i) => { 
                       accumulator += ` ${word}`;
-                      if(i%2 ===1 || words.length === (i+1)) accumulator = accumulator + `</tspan><tspan x=${d.x0+3} dy=${i+8}>`;
+                      if(i%2 ===1 || words.length === (i+1)) accumulator = accumulator + `</tspan><tspan x=${d.x0+3} dy=${i+8} font-size='9'>`;
                       return accumulator;
-                    },"<tspan>");
+                    },"<tspan font-size='9'>");
       return tspans;
     }
-  }    
+  }
 });
