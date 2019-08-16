@@ -2,7 +2,7 @@
 Data visualization using D3 Treemap Diagram. Data set for the app was provided by [freeCodeCamp](https://www.freecodecamp.org/).
 
 <ol>
-<li>[Kickstarter Pledges Data set](https://cdn.rawgit.com/freeCodeCamp/testable-projects-fcc/a80ce8f9/src/data/tree_map/kickstarter-funding-data.json)</li>
+<li><p>[Kickstarter Pledges Data set](https://cdn.rawgit.com/freeCodeCamp/testable-projects-fcc/a80ce8f9/src/data/tree_map/kickstarter-funding-data.json)</p></li>
 <li>[Movie Sales Data set](https://cdn.rawgit.com/freeCodeCamp/testable-projects-fcc/a80ce8f9/src/data/tree_map/movie-data.json)</li>
 <li>[Video Game Sales data set](https://cdn.rawgit.com/freeCodeCamp/testable-projects-fcc/a80ce8f9/src/data/tree_map/video-game-sales-data.json)</li>
 </ol>
